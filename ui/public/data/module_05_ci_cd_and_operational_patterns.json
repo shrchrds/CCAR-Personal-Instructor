@@ -1,0 +1,193 @@
+{
+  "title": "Module 5: CI/CD, Claude Code & Advanced Operational Patterns",
+  "description": "Integrate Claude into CI/CD pipelines, leverage Claude Code for development workflows, and implement advanced operational patterns for scale.",
+  "questions": [
+    {
+      "question": "What is the primary benefit of integrating Claude into CI/CD pipelines?",
+      "options": [
+        "It replaces the need for automated tests",
+        "It can automate code review, generate test cases, and provide intelligent feedback as part of the build/deploy pipeline",
+        "It compiles the code faster",
+        "It eliminates the need for developers"
+      ],
+      "correct": 1,
+      "explanation": "Claude in CI/CD can automate code review, generate tests, suggest improvements, and provide intelligent feedback, enhancing developer productivity and code quality."
+    },
+    {
+      "question": "In a Claude-based CI/CD integration, what is the role of 'hooks'?",
+      "options": [
+        "Hooks are decorative elements in the UI",
+        "Hooks are callbacks that trigger Claude at specific pipeline stages (pre-commit, pre-deploy, post-deploy) to perform automated checks or actions",
+        "Hooks slow down the pipeline intentionally",
+        "Hooks are only used for debugging"
+      ],
+      "correct": 1,
+      "explanation": "Hooks allow Claude to be invoked at specific pipeline stages, automating checks, reviews, and actions that improve quality and safety throughout the delivery process."
+    },
+    {
+      "question": "What is the 'agentic loop' in Claude-based systems?",
+      "options": [
+        "An infinite loop that crashes the system",
+        "A pattern where Claude iteratively plans, acts (via tool calls), observes results, and refines its approach until a goal is achieved",
+        "A loop that only runs in development",
+        "A simple if-else statement"
+      ],
+      "correct": 1,
+      "explanation": "The agentic loop is a core pattern where Claude plans, executes tool calls, observes results, and iteratively refines its approach, enabling complex multi-step workflows."
+    },
+    {
+      "question": "What is the 'hub-and-spoke' architecture in Claude-based systems?",
+      "options": [
+        "A network topology for internet connections",
+        "A central Claude orchestrator (hub) that delegates tasks to specialized tools or services (spokes), coordinating complex workflows",
+        "A method for storing data in a database",
+        "A UI design pattern"
+      ],
+      "correct": 1,
+      "explanation": "Hub-and-spoke uses Claude as a central orchestrator that delegates to specialized tools/services, enabling complex workflows with clear separation of concerns."
+    },
+    {
+      "question": "When implementing Claude Code in a development workflow, what is the recommended approach?",
+      "options": [
+        "Let Claude Code make all decisions without oversight",
+        "Use Claude Code as a collaborative tool with human oversight, code review, and clear guardrails for what it can modify",
+        "Disable Claude Code in production environments only",
+        "Use Claude Code only for writing documentation"
+      ],
+      "correct": 1,
+      "explanation": "Claude Code should operate with human oversight, code review processes, and clear boundaries on what it can modify, balancing automation with safety."
+    },
+    {
+      "question": "What is the purpose of 'structured output' in Claude-based systems?",
+      "options": [
+        "To make responses look pretty",
+        "To enforce a specific schema (e.g., JSON) on Claude's output, enabling reliable parsing and integration with downstream systems",
+        "To increase the length of responses",
+        "To encrypt the output"
+      ],
+      "correct": 1,
+      "explanation": "Structured output enforces a predictable schema on Claude's responses, enabling reliable parsing, validation, and integration with downstream systems."
+    },
+    {
+      "question": "What is the 'validation loop' in Claude-based systems?",
+      "options": [
+        "A loop that validates user credentials",
+        "A pattern where Claude's output is checked against a schema, rules, or model-based criteria, and re-generated if it fails validation",
+        "A loop that validates the API key",
+        "A simple error message"
+      ],
+      "correct": 1,
+      "explanation": "The validation loop ensures output quality by checking Claude's response against criteria and re-generating if needed, catching errors before they reach users or downstream systems."
+    },
+    {
+      "question": "In a Claude-based CI/CD pipeline, what is the role of 'automated evaluation'?",
+      "options": [
+        "It replaces human judgment entirely",
+        "It runs the golden dataset through a grading pipeline to detect regressions in quality before each deployment",
+        "It only checks syntax errors",
+        "It is not needed in CI/CD"
+      ],
+      "correct": 1,
+      "explanation": "Automated evaluation runs golden datasets through grading pipelines in CI/CD, catching quality regressions before they reach production."
+    },
+    {
+      "question": "What is the 'loop lifecycle' in Claude-based agentic systems?",
+      "options": [
+        "The lifecycle of a software bug",
+        "The phases of an agentic loop: initialization, planning, tool execution, observation, reflection, and termination/iteration",
+        "The lifecycle of the Claude API",
+        "A method for version control"
+      ],
+      "correct": 1,
+      "explanation": "The loop lifecycle describes the phases of an agentic loop: init, plan, execute tools, observe results, reflect/learn, and decide whether to iterate or terminate."
+    },
+    {
+      "question": "When designing Claude integration for a multi-service architecture, what pattern should be used for service-to-service communication?",
+      "options": [
+        "Each service should call Claude independently without coordination",
+        "Use message queues, event buses, or API gateways to coordinate Claude interactions across services with consistency and observability",
+        "Share the same Claude API key across all services",
+        "Use Claude as the only service in the architecture"
+      ],
+      "correct": 1,
+      "explanation": "In multi-service architectures, message queues, event buses, or API gateways coordinate Claude interactions, ensuring consistency, observability, and proper error handling."
+    },
+    {
+      "question": "What is the purpose of 'prompt versioning' in Claude-based systems?",
+      "options": [
+        "To have multiple versions of Claude",
+        "To track changes to prompts over time, enable rollbacks, and correlate prompt versions with quality metrics",
+        "To test different programming languages",
+        "To encrypt prompts"
+      ],
+      "correct": 1,
+      "explanation": "Prompt versioning tracks prompt changes over time, enabling rollbacks, A/B testing, and correlation of specific prompt versions with quality outcomes."
+    },
+    {
+      "question": "In a Claude-based system, what is the role of 'semantic caching'?",
+      "options": [
+        "It caches the entire model weights",
+        "It stores and reuses responses for semantically similar queries, reducing API costs and latency",
+        "It caches only the system prompt",
+        "It is not a real caching strategy"
+      ],
+      "correct": 1,
+      "explanation": "Semantic caching stores responses for semantically similar (not just identical) queries, providing cost and latency savings for common query patterns."
+    },
+    {
+      "question": "What is the 'enforcement ladder' in the context of Claude-based operational governance?",
+      "options": [
+        "A ranking of Claude models by performance",
+        "A graduated response framework: warn, block, escalate to human, or deny based on the severity of a detected risk or violation",
+        "A list of approved tools",
+        "A method for increasing API throughput"
+      ],
+      "correct": 1,
+      "explanation": "The enforcement ladder provides graduated governance responses, from soft warnings to hard blocks and human escalation, matching severity to action."
+    },
+    {
+      "question": "When implementing Claude Code in a CI/CD pipeline, what safety measure is most critical?",
+      "options": [
+        "No safety measures are needed",
+        "Restrict Claude Code's write permissions to specific directories/files and require human approval for sensitive changes",
+        "Allow Claude Code full access to the repository",
+        "Disable Claude Code in all environments"
+      ],
+      "correct": 1,
+      "explanation": "Restricting Claude Code's write permissions and requiring human approval for sensitive changes prevents unintended or harmful modifications in automated pipelines."
+    },
+    {
+      "question": "What is the purpose of 'feature flags' in a Claude-based solution?",
+      "options": [
+        "To add visual decorations to the UI",
+        "To toggle Claude-based features on/off dynamically without redeployment, enabling gradual rollouts and quick rollbacks",
+        "To flag errors in the system",
+        "To mark the end of a prompt"
+      ],
+      "correct": 1,
+      "explanation": "Feature flags enable dynamic toggling of Claude-based features without redeployment, supporting gradual rollouts, A/B testing, and instant rollbacks."
+    },
+    {
+      "question": "In a Claude-based architecture, what is the role of 'structured output' combined with 'validation'?",
+      "options": [
+        "It makes the output longer",
+        "It ensures Claude's output conforms to a strict schema and passes validation checks before being consumed by downstream systems",
+        "It replaces the need for a database",
+        "It is only useful for debugging"
+      ],
+      "correct": 1,
+      "explanation": "Structured output plus validation ensures reliable, predictable, and correct responses that downstream systems can safely consume without error-prone parsing."
+    },
+    {
+      "question": "When scaling Claude-based systems, what is the purpose of 'model routing'?",
+      "options": [
+        "It routes network traffic to Claude",
+        "It directs requests to the most appropriate Claude model (or alternative) based on task complexity, cost constraints, and latency requirements",
+        "It routes data to the database",
+        "It is not a real pattern"
+      ],
+      "correct": 1,
+      "explanation": "Model routing directs requests to the optimal model (size, capability, cost) based on task requirements, balancing performance and cost at scale."
+    }
+  ]
+}

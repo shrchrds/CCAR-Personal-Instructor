@@ -1,0 +1,171 @@
+{
+  "title": "Module 1: Claude Platform & Solution Design",
+  "description": "Reference architecture, model selection, context strategy, and design principles for Claude-based solutions.",
+  "questions": [
+    {
+      "question": "In the Claude Platform reference architecture, which layer is responsible for translating business requirements into technical designs?",
+      "options": [
+        "Integration Layer",
+        "Application/Orchestration Layer",
+        "Foundation Model Layer",
+        "Business Strategy Layer"
+      ],
+      "correct": 1,
+      "explanation": "The Application/Orchestration Layer sits between the foundation model and business logic, translating requirements into Claude-powered technical designs."
+    },
+    {
+      "question": "When selecting between Claude models for a production solution, which factor should an architect prioritize for a real-time customer-facing chatbot with strict latency requirements?",
+      "options": [
+        "Maximum context window size",
+        "Latency and throughput characteristics",
+        "Number of available API endpoints",
+        "Support for the widest range of tools"
+      ],
+      "correct": 1,
+      "explanation": "For real-time customer-facing applications, latency and throughput are the primary selection criteria, as they directly impact user experience."
+    },
+    {
+      "question": "What is the recommended approach for managing context window usage in a long-running Claude-based agentic workflow?",
+      "options": [
+        "Use the largest available context window regardless of cost",
+        "Implement a sliding window with selective context retention and summarization of older turns",
+        "Reset the conversation after every tool call",
+        "Store all conversation history in an external database and never pass it to the model"
+      ],
+      "correct": 1,
+      "explanation": "A sliding window with selective retention balances context awareness with cost and performance, keeping recent turns and summaries of earlier ones."
+    },
+    {
+      "question": "Which Claude Platform capability enables you to combine multiple specialized models or endpoints within a single solution?",
+      "options": [
+        "Model routing and multi-model orchestration",
+        "Single-model fine-tuning",
+        "API rate limiting",
+        "Context window expansion"
+      ],
+      "correct": 0,
+      "explanation": "Model routing allows architects to direct different tasks to the most appropriate Claude model variant or endpoint based on complexity, latency, or cost requirements."
+    },
+    {
+      "question": "In a Claude-based solution architecture, what is the primary purpose of the 'guardrails' layer?",
+      "options": [
+        "Improve response speed",
+        "Filter and validate inputs/outputs to ensure safety, compliance, and quality",
+        "Manage user authentication",
+        "Optimize token usage"
+      ],
+      "correct": 1,
+      "explanation": "Guardrails provide input/output filtering to enforce safety policies, prevent data leakage, and ensure outputs meet quality and compliance standards."
+    },
+    {
+      "question": "When designing a multi-agent Claude solution, what is the key architectural pattern recommended by Anthropic?",
+      "options": [
+        "A hub-and-spoke pattern where a central orchestrator delegates to specialized agent tools",
+        "Each agent operates completely independently with no coordination",
+        "All agents share a single prompt and context window",
+        "Agents communicate exclusively through a shared database"
+      ],
+      "correct": 0,
+      "explanation": "The hub-and-spoke pattern uses Claude as a central orchestrator that delegates tasks to specialized tool-calling agents, maintaining control and context management."
+    },
+    {
+      "question": "Which design principle should guide the separation of concerns in a Claude-based enterprise solution?",
+      "options": [
+        "Put all logic into a single monolithic prompt",
+        "Separate prompt engineering, tool definitions, and business logic into distinct, independently testable layers",
+        "Embed all tool definitions inside the system prompt",
+        "Avoid modularization to reduce latency"
+      ],
+      "correct": 1,
+      "explanation": "Separating concerns allows independent testing, iteration, and governance of prompts, tools, and business logic."
+    },
+    {
+      "question": "For a document-processing pipeline using Claude, what is the most cost-effective strategy for handling large documents?",
+      "options": [
+        "Send the entire document in a single API call",
+        "Chunk the document strategically, process chunks with appropriate models, and use a final synthesis step",
+        "Always use the smallest model regardless of task complexity",
+        "Avoid document processing and only handle structured data"
+      ],
+      "correct": 1,
+      "explanation": "Strategic chunking with model selection per chunk (e.g., smaller models for extraction, larger for synthesis) optimizes both cost and quality."
+    },
+    {
+      "question": "What role does 'prompt caching' play in Claude solution design?",
+      "options": [
+        "It eliminates the need for any prompt engineering",
+        "It reduces latency and cost by reusing previously processed prompt prefixes across requests",
+        "It automatically generates prompts from business requirements",
+        "It increases the context window size"
+      ],
+      "correct": 1,
+      "explanation": "Prompt caching stores frequently-used prompt prefixes, reducing both latency and cost when those prefixes are reused across multiple requests."
+    },
+    {
+      "question": "In Claude's architecture, what is the relationship between the 'system prompt' and 'user messages'?",
+      "options": [
+        "They are identical and interchangeable",
+        "The system prompt sets behavior/context for the entire conversation; user messages provide the specific task or input",
+        "User messages override the system prompt entirely",
+        "The system prompt is only used in the first message and then ignored"
+      ],
+      "correct": 1,
+      "explanation": "The system prompt establishes persistent behavior and context, while user messages carry the actual task-specific inputs within that framework."
+    },
+    {
+      "question": "Which of the following is a key consideration when designing Claude solutions for multi-tenant enterprise environments?",
+      "options": [
+        "All tenants should share the same API key for simplicity",
+        "Tenant data must be isolated; prompts and tools should include tenant-specific context without cross-tenant leakage",
+        "Multi-tenancy is not supported by Claude",
+        "Each tenant requires a separate Claude model instance"
+      ],
+      "correct": 1,
+      "explanation": "Proper tenant isolation prevents data leakage while still allowing shared infrastructure, using tenant-specific context injection rather than shared credentials."
+    },
+    {
+      "question": "What is the recommended approach for handling tool call failures in a Claude-based agentic loop?",
+      "options": [
+        "Abort the entire conversation and restart",
+        "Implement retry logic with exponential backoff, fallback strategies, and user-facing error messages",
+        "Ignore the error and proceed to the next step",
+        "Silently retry without informing the user"
+      ],
+      "correct": 1,
+      "explanation": "Robust error handling includes retries with backoff, alternative paths when possible, and transparent communication with users about failures."
+    },
+    {
+      "question": "When designing a Claude solution that requires real-time data access, which integration pattern is most appropriate?",
+      "options": [
+        "Bake all data into the prompt before each call",
+        "Use tool calling to fetch fresh data on-demand during the conversation",
+        "Store all real-time data in the system prompt",
+        "Avoid real-time data entirely"
+      ],
+      "correct": 1,
+      "explanation": "Tool calling enables dynamic, real-time data retrieval during a conversation, keeping the context lean while providing up-to-date information when needed."
+    },
+    {
+      "question": "What is the primary benefit of using structured output (JSON mode) in Claude for enterprise applications?",
+      "options": [
+        "It makes responses faster",
+        "It guarantees parseable, consistent output that integrates reliably with downstream systems and databases",
+        "It reduces the cost of API calls",
+        "It eliminates the need for validation"
+      ],
+      "correct": 1,
+      "explanation": "Structured output ensures predictable, machine-readable responses essential for automated pipelines, database integration, and API consumption."
+    },
+    {
+      "question": "In a Claude-based solution, what is the purpose of a 'retrieval-augmented generation' (RAG) pipeline?",
+      "options": [
+        "To reduce the number of API calls needed",
+        "To ground Claude's responses in up-to-date, domain-specific data retrieved from external knowledge bases",
+        "To train a custom model",
+        "To replace the need for a system prompt"
+      ],
+      "correct": 1,
+      "explanation": "RAG enriches Claude's responses by retrieving relevant, current information from external sources, grounding answers in specific domain knowledge rather than training data alone."
+    }
+  ]
+}

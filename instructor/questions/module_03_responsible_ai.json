@@ -1,0 +1,171 @@
+{
+  "title": "Module 3: Responsible AI, Safety & Risk for Architects",
+  "description": "Safety layers, tool-call authorization, content screening, and risk management in Claude-based enterprise solutions.",
+  "questions": [
+    {
+      "question": "What is the 'fail-closed' principle in the context of Claude-based tool calling?",
+      "options": [
+        "Close the application when an error occurs",
+        "Default to denying tool execution when authorization is uncertain or fails, rather than allowing it",
+        "Always close the API connection after each call",
+        "Shut down the database when a tool call fails"
+      ],
+      "correct": 1,
+      "explanation": "Fail-closed means that when tool authorization is uncertain, ambiguous, or fails, the system defaults to denying execution rather than risking an unauthorized action."
+    },
+    {
+      "question": "In Claude's safety stack, what is the purpose of input screening?",
+      "options": [
+        "To speed up API responses",
+        "To detect and block malicious prompts, injection attacks, and policy-violating inputs before they reach the model",
+        "To count the number of input tokens",
+        "To translate inputs into different languages"
+      ],
+      "correct": 1,
+      "explanation": "Input screening acts as a pre-model filter to catch prompt injection, jailbreak attempts, and other malicious or policy-violating inputs before they reach Claude."
+    },
+    {
+      "question": "Which approach is most effective for preventing prompt injection attacks in a Claude-based system?",
+      "options": [
+        "Rely solely on the model to detect injection",
+        "Layer defense-in-depth: input sanitization, system prompt boundaries, output validation, and tool-call authorization",
+        "Disable all user input",
+        "Use only structured data and never text"
+      ],
+      "correct": 1,
+      "explanation": "No single defense is sufficient. A layered approach combining input sanitization, clear system/user boundaries, output validation, and tool authorization provides robust protection."
+    },
+    {
+      "question": "What is 'tool-call authorization' in a Claude architecture?",
+      "options": [
+        "A method to speed up tool calls",
+        "A mechanism that verifies whether Claude is permitted to execute a specific tool call (and with what parameters) before it runs",
+        "A way to cache tool results",
+        "A logging feature for tool usage"
+      ],
+      "correct": 1,
+      "explanation": "Tool-call authorization is a pre-execution check that validates whether Claude is allowed to invoke a specific tool with given parameters, preventing unauthorized actions."
+    },
+    {
+      "question": "When designing output screening for a Claude solution, what should an architect prioritize?",
+      "options": [
+        "Only check for profanity",
+        "Validate outputs against safety policies, accuracy thresholds, and downstream system constraints before they reach the end user",
+        "Let the model handle all output safety internally",
+        "Skip output screening for internal tools"
+      ],
+      "correct": 1,
+      "explanation": "Output screening validates Claude's responses against safety, accuracy, and integration requirements before they reach users or downstream systems."
+    },
+    {
+      "question": "What is the risk of 'hallucination' in a Claude-based enterprise system?",
+      "options": [
+        "The model generates plausible but incorrect or fabricated information that can mislead users or cause operational errors",
+        "The model refuses to answer all questions",
+        "The model responds only in a foreign language",
+        "The model always gives correct answers"
+      ],
+      "correct": 0,
+      "explanation": "Hallucination — generating confident but incorrect information — is a core risk that architects must mitigate through grounding (RAG), validation, and clear scope boundaries."
+    },
+    {
+      "question": "Which strategy best mitigates hallucination in a Claude-based knowledge-worker tool?",
+      "options": [
+        "Tell the user the model might be wrong",
+        "Ground responses in retrieved, verified data sources and implement a post-generation validation step",
+        "Use the largest model available",
+        "Increase the temperature to maximum"
+      ],
+      "correct": 1,
+      "explanation": "Grounding responses in retrieved, verified sources (RAG) combined with post-generation validation (rule-based or model-based) is the most effective hallucination mitigation."
+    },
+    {
+      "question": "What is the purpose of 'model-based output validation' in a Claude architecture?",
+      "options": [
+        "It generates additional responses",
+        "It uses Claude (or another model) to check its own output against a rubric, schema, or set of criteria before releasing it",
+        "It trains the model on new data",
+        "It replaces the need for human review"
+      ],
+      "correct": 1,
+      "explanation": "Model-based validation (often called a 'validation loop') has Claude review its own output against defined criteria, catching errors, hallucinations, or policy violations."
+    },
+    {
+      "question": "When handling PII (Personally Identifiable Information) in a Claude system, what is the recommended approach?",
+      "options": [
+        "Send all PII to Claude without restriction",
+        "Implement PII detection and redaction at the integration layer before data reaches the API, and enforce data retention policies",
+        "Store all PII in the conversation history",
+        "Only redact PII in test environments"
+      ],
+      "correct": 1,
+      "explanation": "PII must be detected and redacted before reaching Claude's API, and data retention policies must govern how long (if at all) any personal data is stored."
+    },
+    {
+      "question": "What is the role of 'human-in-the-loop' in a Claude-based safety architecture?",
+      "options": [
+        "Humans must approve every single model response",
+        "For high-risk actions or outputs that fail automated checks, route to human review before execution or delivery",
+        "Humans are never involved in Claude-based systems",
+        "Humans only write the initial prompts"
+      ],
+      "correct": 1,
+      "explanation": "Human-in-the-loop provides a safety net for high-risk operations or when automated safety checks flag issues, balancing automation with human judgment."
+    },
+    {
+      "question": "What does 'adversarial testing' mean in the context of Claude solution safety?",
+      "options": [
+        "Testing the model with normal user inputs",
+        "Intentionally attempting to break safety controls (prompt injection, jailbreaks, output manipulation) to find and fix vulnerabilities before deployment",
+        "Testing only the user interface",
+        "Comparing different Claude models"
+      ],
+      "correct": 1,
+      "explanation": "Adversarial testing actively probes the system's safety controls with attack-like inputs to uncover vulnerabilities before malicious actors do."
+    },
+    {
+      "question": "In a Claude-based agentic system, what is the risk of 'tool call injection'?",
+      "options": [
+        "The tool runs too slowly",
+        "A malicious input manipulates Claude into making unauthorized or dangerous tool calls (e.g., deleting data, sending emails)",
+        "The tool returns incorrect data",
+        "The tool is not available"
+      ],
+      "correct": 1,
+      "explanation": "Tool call injection occurs when crafted inputs trick Claude into executing unintended or unauthorized tool calls, potentially causing data loss or security breaches."
+    },
+    {
+      "question": "What is the 'enforcement ladder' in Claude-based safety design?",
+      "options": [
+        "A ranking of Claude models by capability",
+        "A graduated set of safety responses: warn, block, redact, escalate to human, or deny tool execution based on severity of the detected risk",
+        "A method to increase API throughput",
+        "A list of allowed tools"
+      ],
+      "correct": 1,
+      "explanation": "The enforcement ladder provides graduated responses to safety violations, from soft warnings to hard blocks and human escalation, matching response severity to risk level."
+    },
+    {
+      "question": "When designing a Claude solution for regulated industries (e.g., healthcare, finance), what additional safety consideration is critical?",
+      "options": [
+        "Regulated industries do not need extra safety measures",
+        "Audit trails for all model interactions, compliance mapping (e.g., HIPAA, SOC2), and the ability to explain every model decision",
+        "Use only the smallest model",
+        "Disable all tools"
+      ],
+      "correct": 1,
+      "explanation": "Regulated industries require full auditability, compliance mapping, and explainability for every Claude interaction to meet legal and regulatory obligations."
+    },
+    {
+      "question": "What is the purpose of 'content filtering' in Claude's API?",
+      "options": [
+        "To limit the number of tokens in the response",
+        "To detect and block responses that violate safety policies (e.g., harmful, illegal, or sexually explicit content)",
+        "To translate content into other languages",
+        "To compress the output"
+      ],
+      "correct": 1,
+      "explanation": "Content filtering (both input and output) detects and blocks content that violates Anthropic's safety policies, providing a baseline layer of protection."
+    }
+  ]
+}

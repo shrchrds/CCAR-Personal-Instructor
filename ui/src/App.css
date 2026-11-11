@@ -1,0 +1,436 @@
+/*
+ * Adapted from mitchgavan/react-multi-choice-quiz (MIT)
+ * https://github.com/mitchgavan/react-multi-choice-quiz
+ *
+ * Original App.css provided the quiz layout foundation (header, progress bar,
+ * answer buttons, footer). Extended with dashboard, module grid, results views.
+ */
+
+/* ---------- App-wide containers ---------- */
+.app-dashboard,
+.app-quiz,
+.app-results {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+/* ---------- Dashboard ---------- */
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.3rem;
+}
+
+.menu-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.menu-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menu-btn.exam {
+  background: #6c63ff;
+  color: #fff;
+}
+
+.menu-btn.exam:hover {
+  background: #5a52d5;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.module-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-size: 0.95rem;
+}
+
+.module-card:hover {
+  border-color: #6c63ff;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.15);
+}
+
+.module-number {
+  font-weight: 700;
+  color: #6c63ff;
+  min-width: 52px;
+}
+
+.module-title {
+  flex: 1;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.module-count {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.loading,
+.no-data {
+  text-align: center;
+  color: #888;
+}
+
+/* ---------- Quiz ---------- */
+.quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.question-count {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.question-count span {
+  color: #6c63ff;
+}
+
+.feedback-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.feedback-badge.correct {
+  background: #d4edda;
+  color: #155724;
+}
+
+.feedback-badge.incorrect {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #e9ecef;
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #6c63ff;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.quiz-body {
+  margin-bottom: 1.5rem;
+}
+
+.question {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 1.25rem;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ---------- Answer Option ---------- */
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.answer-option:hover {
+  border-color: #6c63ff;
+  background: #f0f0ff;
+}
+
+.answer-option.selected {
+  border-color: #6c63ff;
+  background: #e8e5ff;
+}
+
+.answer-option.correct {
+  border-color: #28a745;
+  background: #d4edda;
+}
+
+.answer-option.incorrect {
+  border-color: #dc3545;
+  background: #f8d7da;
+}
+
+.option-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e9ecef;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.option-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.option-icon {
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.answer-option.correct .option-icon {
+  color: #155724;
+}
+
+.answer-option.incorrect .option-icon {
+  color: #721c24;
+}
+
+.exam-mode {
+  cursor: default;
+}
+
+/* ---------- Explanation ---------- */
+.explanation {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background: #e8f4fd;
+  border-left: 4px solid #6c63ff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* ---------- Quiz Footer ---------- */
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-nav,
+.btn-submit,
+.btn-home {
+  padding: 0.65rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-nav {
+  background: #e9ecef;
+  color: #333;
+}
+
+.btn-nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-nav:hover:not(:disabled) {
+  background: #dde1e6;
+}
+
+.btn-submit {
+  background: #6c63ff;
+  color: #fff;
+}
+
+.btn-submit:hover {
+  background: #5a52d5;
+}
+
+.btn-home {
+  background: transparent;
+  color: #6c63ff;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.btn-home:hover {
+  text-decoration: underline;
+}
+
+.btn-home.big {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.85rem;
+  margin-top: 1.5rem;
+  border: 2px solid #6c63ff;
+  font-size: 1rem;
+}
+
+/* ---------- Results ---------- */
+.results-header h1 {
+  text-align: center;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+}
+
+.score-card {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.score-card.pass {
+  background: #d4edda;
+  border: 2px solid #28a745;
+}
+
+.score-card.fail {
+  background: #f8d7da;
+  border: 2px solid #dc3545;
+}
+
+.score-pct {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.score-card.pass .score-pct {
+  color: #155724;
+}
+
+.score-card.fail .score-pct {
+  color: #721c24;
+}
+
+.score-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.3rem;
+}
+
+.score-detail {
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+.review-section {
+  margin-top: 1rem;
+}
+
+.review-section h2 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.review-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.review-qnum {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.review-question {
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.review-answer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.your-answer {
+  color: #555;
+}
+
+.correct-answer {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.review-explanation {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-left: 3px solid #6c63ff;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.review-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}

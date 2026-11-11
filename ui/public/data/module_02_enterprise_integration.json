@@ -1,0 +1,171 @@
+{
+  "title": "Module 2: Enterprise Integration & Production",
+  "description": "Take a designed solution from proof of concept to enterprise-ready production: cost, latency, reliability, and integration patterns.",
+  "questions": [
+    {
+      "question": "When moving a Claude-based solution from PoC to production, which metric should an architect prioritize first?",
+      "options": [
+        "Number of API calls per day",
+        "Mapping cost, latency, and reliability targets to the enterprise's budget and SLAs",
+        "Total number of users",
+        "Length of the system prompt"
+      ],
+      "correct": 1,
+      "explanation": "Production readiness requires mapping concrete cost, latency, and reliability targets to the enterprise's budget and service-level agreements before scaling."
+    },
+    {
+      "question": "Which integration pattern is most appropriate for embedding Claude capabilities into an existing enterprise workflow with strict security policies?",
+      "options": [
+        "Direct user access to Claude's web UI",
+        "API-based integration with authentication, rate limiting, and audit logging",
+        "Copying and pasting results between systems",
+        "Running Claude locally on a developer's laptop"
+      ],
+      "correct": 1,
+      "explanation": "API-based integration with auth, rate limiting, and audit logging provides the security controls and observability that enterprises require for production."
+    },
+    {
+      "question": "In a production Claude deployment, what is the recommended strategy for handling API rate limits?",
+      "options": [
+        "Ignore them and let failures occur organically",
+        "Implement request queuing, backpressure, and client-side rate limiting with fallback responses",
+        "Use a single API key across all services",
+        "Reduce the prompt size to zero"
+      ],
+      "correct": 1,
+      "explanation": "Production systems need queuing, backpressure, and client-side rate management to handle capacity constraints gracefully without dropping user requests."
+    },
+    {
+      "question": "What is the primary purpose of implementing caching in a Claude-based production system?",
+      "options": [
+        "To eliminate the need for the Claude API entirely",
+        "To reduce latency and cost by serving previously computed responses for repeated or similar queries",
+        "To increase the complexity of the architecture",
+        "To store user credentials"
+      ],
+      "correct": 1,
+      "explanation": "Caching (including prompt caching and response caching) reduces both latency and cost by avoiding redundant API calls for repeated queries."
+    },
+    {
+      "question": "When designing for high availability in a Claude-based system, which pattern should an architect implement?",
+      "options": [
+        "A single-point deployment with no redundancy",
+        "Graceful degradation: the system continues operating with reduced capability when Claude is unavailable",
+        "Always rely on Claude without any fallback",
+        "Disable all non-essential features during outages"
+      ],
+      "correct": 1,
+      "explanation": "Graceful degradation ensures the system remains partially functional even during Claude API outages, falling back to cached responses or simplified workflows."
+    },
+    {
+      "question": "Which of the following is a critical consideration for data residency in a Claude enterprise deployment?",
+      "options": [
+        "Data residency does not matter for cloud-based AI",
+        "Customer data may need to remain in specific geographic regions; the architecture must enforce this at the integration layer",
+        "All data must be stored in Claude's servers permanently",
+        "Only anonymized data can be sent to Claude"
+      ],
+      "correct": 1,
+      "explanation": "Enterprise deployments must respect data residency requirements (e.g., GDPR, regional laws), enforcing data location constraints at the integration layer."
+    },
+    {
+      "question": "What is the role of observability in a production Claude system?",
+      "options": [
+        "It is optional and only useful during development",
+        "It provides real-time visibility into cost, latency, error rates, and usage patterns to drive operational decisions",
+        "It replaces the need for security controls",
+        "It only tracks user login times"
+      ],
+      "correct": 1,
+      "explanation": "Observability (monitoring, logging, alerting) is essential for production Claude systems to track performance, cost, and reliability in real time."
+    },
+    {
+      "question": "When scaling a Claude-based service, which approach balances cost and performance most effectively?",
+      "options": [
+        "Always use the largest, most capable model for every request",
+        "Route simple tasks to smaller/faster models and complex reasoning tasks to larger models",
+        "Use only the smallest model to minimize cost",
+        "Run all models in parallel for every request"
+      ],
+      "correct": 1,
+      "explanation": "Model routing (tiered model selection) assigns tasks to the most appropriate model based on complexity, optimizing both cost and performance."
+    },
+    {
+      "question": "What is a key challenge when integrating Claude with legacy enterprise systems?",
+      "options": [
+        "Legacy systems are always faster than Claude",
+        "Bridging asynchronous, event-driven Claude workflows with synchronous, batch-oriented legacy systems requires careful adapter design",
+        "Legacy systems never require integration",
+        "Claude cannot interact with any external system"
+      ],
+      "correct": 1,
+      "explanation": "Legacy systems often use synchronous batch processing, while Claude operates asynchronously with tool calls, requiring careful adapter and queue design."
+    },
+    {
+      "question": "Which pattern is recommended for managing configuration in a multi-environment (dev/staging/prod) Claude deployment?",
+      "options": [
+        "Hardcode all configuration in the source code",
+        "Use environment-specific configuration files or a configuration service, never hardcode credentials or endpoints",
+        "Share the same configuration across all environments",
+        "Store configuration only in the system prompt"
+      ],
+      "correct": 1,
+      "explanation": "Environment-specific configuration (via config files, secrets managers, or config services) allows safe deployment across dev, staging, and production."
+    },
+    {
+      "question": "What is the purpose of implementing circuit breakers in a Claude-based production system?",
+      "options": [
+        "To increase the number of API calls",
+        "To prevent cascading failures by temporarily stopping requests to Claude when error rates exceed a threshold",
+        "To cache all responses indefinitely",
+        "To replace the need for monitoring"
+      ],
+      "correct": 1,
+      "explanation": "Circuit breakers detect elevated error rates and temporarily halt requests, preventing cascading failures and allowing the system to recover."
+    },
+    {
+      "question": "In a production Claude deployment, how should an architect approach cost management?",
+      "options": [
+        "Cost is not a concern in production",
+        "Implement token budgeting, per-tenant cost tracking, and alerting on cost anomalies",
+        "Only track total monthly spend",
+        "Let the cloud provider handle all cost optimization"
+      ],
+      "correct": 1,
+      "explanation": "Production cost management requires granular tracking (per-tenant, per-feature), budgeting, and anomaly detection to prevent cost overruns."
+    },
+    {
+      "question": "What is the recommended approach for handling sensitive data in Claude API requests?",
+      "options": [
+        "Send all data without filtering",
+        "Apply PII detection and redaction before sending data to Claude, and avoid storing sensitive data in logs",
+        "Only anonymize data in development",
+        "Encrypt data only at rest"
+      ],
+      "correct": 1,
+      "explanation": "PII detection, redaction, and careful log management are essential to prevent sensitive data from being exposed in API requests or logs."
+    },
+    {
+      "question": "Which deployment strategy minimizes risk when rolling out a Claude-based feature to a large enterprise?",
+      "options": [
+        "Big-bang release to all users simultaneously",
+        "Phased rollout with canary deployment, feature flags, and rollback capability",
+        "Deploy only during business hours",
+        "Skip staging and deploy directly to production"
+      ],
+      "correct": 1,
+      "explanation": "Phased rollouts with canary deployments, feature flags, and easy rollback minimize blast radius and allow controlled validation in production."
+    },
+    {
+      "question": "What is the role of a message queue (e.g., SQS, Kafka) in a Claude-based enterprise integration?",
+      "options": [
+        "It replaces the Claude API",
+        "It decouples request ingestion from processing, enabling asynchronous handling of Claude interactions and backpressure management",
+        "It stores the model weights",
+        "It is only used for logging"
+      ],
+      "correct": 1,
+      "explanation": "Message queues decouple ingestion from processing, enabling asynchronous, scalable handling of Claude interactions with built-in backpressure."
+    }
+  ]
+}

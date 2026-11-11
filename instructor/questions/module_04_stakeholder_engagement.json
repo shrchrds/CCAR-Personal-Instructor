@@ -1,0 +1,171 @@
+{
+  "title": "Module 4: Stakeholder Engagement, Lifecycle & Go-to-Market",
+  "description": "Plan the lifecycle of an AI feature: define scope, set expectations, align stakeholders, manage change, and measure success with KPIs.",
+  "questions": [
+    {
+      "question": "When planning an AI feature's lifecycle, what should be the first step before any technical design?",
+      "options": [
+        "Build a proof of concept immediately",
+        "Define the problem scope, success criteria, and stakeholder expectations in writing",
+        "Choose the largest Claude model available",
+        "Write the system prompt first"
+      ],
+      "correct": 1,
+      "explanation": "Before any technical design, architects must define the problem scope, success metrics, and stakeholder expectations to ensure the solution addresses real needs."
+    },
+    {
+      "question": "What is a 'golden dataset' in the context of Claude solution development?",
+      "options": [
+        "A dataset with the most expensive API calls",
+        "A curated set of representative inputs and expected outputs used for evaluation, regression testing, and quality assurance",
+        "The entire training data of Claude",
+        "A dataset used only for marketing demos"
+      ],
+      "correct": 1,
+      "explanation": "A golden dataset provides a stable benchmark of representative cases with known good outputs, enabling consistent evaluation and regression testing across iterations."
+    },
+    {
+      "question": "Which KPI is most important for measuring the success of a Claude-based customer support system?",
+      "options": [
+        "Number of API calls per second",
+        "Customer satisfaction (CSAT), first-contact resolution rate, and escalation rate",
+        "Length of the system prompt",
+        "Total tokens consumed"
+      ],
+      "correct": 1,
+      "explanation": "Business-aligned KPIs like CSAT, first-contact resolution, and escalation rates measure actual user impact rather than technical metrics alone."
+    },
+    {
+      "question": "What is the recommended approach for managing stakeholder expectations during the development of a Claude-based solution?",
+      "options": [
+        "Promise the best possible results to win support",
+        "Set realistic expectations about AI capabilities, limitations, and the iterative nature of development with regular demos and feedback loops",
+        "Avoid sharing progress until the final release",
+        "Tell stakeholders the system will never make mistakes"
+      ],
+      "correct": 1,
+      "explanation": "Managing expectations requires honest communication about AI limitations, regular demos for feedback, and iterative improvement rather than overpromising."
+    },
+    {
+      "question": "In the lifecycle of a Claude-based feature, what is the purpose of a 'staged rollout'?",
+      "options": [
+        "To increase development time unnecessarily",
+        "To limit initial blast radius, gather real-world feedback, and iterate before full-scale deployment",
+        "To avoid testing entirely",
+        "To release only to internal users permanently"
+      ],
+      "correct": 1,
+      "explanation": "Staged rollouts (alpha → beta → GA) limit risk by exposing the feature to progressively larger audiences, gathering feedback, and iterating before full release."
+    },
+    {
+      "question": "What is the role of 'change management' when introducing Claude-based tools to an organization?",
+      "options": [
+        "Change management is not needed for AI tools",
+        "Address human factors: training, communication, addressing fears about job displacement, and supporting users through the transition",
+        "Change management only applies to non-technical changes",
+        "Only IT departments need change management"
+      ],
+      "correct": 1,
+      "explanation": "AI adoption requires addressing human concerns (job security, workflow changes), providing training, and communicating benefits to ensure smooth adoption."
+    },
+    {
+      "question": "When defining success metrics for a Claude-based solution, what is the difference between 'leading' and 'lagging' indicators?",
+      "options": [
+        "There is no difference",
+        "Leading indicators predict future outcomes (e.g., prompt quality score, test pass rate); lagging indicators measure past results (e.g., monthly revenue impact)",
+        "Leading indicators are more important than lagging ones",
+        "Lagging indicators are always more accurate"
+      ],
+      "correct": 1,
+      "explanation": "Leading indicators (predictive) help steer development before problems become visible in lagging indicators (outcome-based historical metrics)."
+    },
+    {
+      "question": "What is the purpose of a 'pre-mortem' in the planning phase of a Claude project?",
+      "options": [
+        "To write an obituary for the project",
+        "To proactively identify potential failure modes and design mitigations before they occur",
+        "To celebrate project completion early",
+        "To assign blame for potential issues"
+      ],
+      "correct": 1,
+      "explanation": "A pre-mortem is a planning exercise where the team imagines the project has failed and works backward to identify likely causes and design preventive measures."
+    },
+    {
+      "question": "When presenting a Claude-based solution to non-technical stakeholders, what approach is most effective?",
+      "options": [
+        "Explain the underlying transformer architecture in detail",
+        "Focus on business outcomes, user impact, and concrete examples rather than technical implementation details",
+        "Show only the API documentation",
+        "Avoid showing any examples"
+      ],
+      "correct": 1,
+      "explanation": "Non-technical stakeholders care about business value, user impact, and ROI — not technical architecture. Concrete examples and demos bridge the gap."
+    },
+    {
+      "question": "What is the 'enforcement ladder' in the context of Claude-based operational governance?",
+      "options": [
+        "A ranking of employees by their Claude usage",
+        "A graduated response framework: warn, block, escalate to human, or deny based on the severity of a detected risk or violation",
+        "A list of approved Claude models",
+        "A method for increasing API throughput"
+      ],
+      "correct": 1,
+      "explanation": "The enforcement ladder provides graduated governance responses, from soft warnings to hard blocks and human escalation, matching severity to action."
+    },
+    {
+      "question": "In a Claude solution lifecycle, what is the purpose of a 'retrospective' after deployment?",
+      "options": [
+        "To assign blame for any issues",
+        "To systematically review what worked, what didn't, and what to improve for future iterations",
+        "To celebrate success and never look at problems",
+        "To document only the positive outcomes"
+      ],
+      "correct": 1,
+      "explanation": "Retrospectives capture lessons learned (both positive and negative) to improve future Claude solution development and operational practices."
+    },
+    {
+      "question": "What is the recommended cadence for reviewing and updating a Claude-based solution after production deployment?",
+      "options": [
+        "Never update once deployed",
+        "Regular review cycles (e.g., monthly or quarterly) to assess performance, update prompts, and incorporate feedback",
+        "Only update when the model is completely broken",
+        "Update every hour"
+      ],
+      "correct": 1,
+      "explanation": "Claude-based solutions need ongoing maintenance: regular reviews to assess performance drift, update prompts, refine tools, and incorporate user feedback."
+    },
+    {
+      "question": "When building a go-to-market strategy for an AI feature, what should come before the technical launch?",
+      "options": [
+        "The technical launch should happen first",
+        "A communication plan, user training, support documentation, and stakeholder alignment on success criteria",
+        "No preparation is needed for AI features",
+        "Only the engineering team needs to be informed"
+      ],
+      "correct": 1,
+      "explanation": "Successful GTM requires communication, training, documentation, and stakeholder buy-in before the technical launch to ensure adoption and minimize disruption."
+    },
+    {
+      "question": "What is the purpose of 'A/B testing' in a Claude-based solution's lifecycle?",
+      "options": [
+        "To test the alphabetical order of responses",
+        "To compare two variants (e.g., different prompts, models, or workflows) on real user metrics to determine which performs better",
+        "To test only the UI design",
+        "To eliminate the need for human evaluation"
+      ],
+      "correct": 1,
+      "explanation": "A/B testing with real user metrics (not just developer judgment) provides empirical evidence for which prompt, model, or workflow variant delivers better outcomes."
+    },
+    {
+      "question": "In the context of a Claude solution, what does 'total cost of ownership' (TCO) include beyond API costs?",
+      "options": [
+        "Only the API costs",
+        "API costs, engineering time, infrastructure, monitoring, security controls, training, and ongoing maintenance",
+        "Only the cost of Claude models",
+        "Only the cost of human reviewers"
+      ],
+      "correct": 1,
+      "explanation": "TCO encompasses the full cost picture: API usage, development effort, infrastructure, observability, security, training, and ongoing maintenance over the solution's lifetime."
+    }
+  ]
+}
